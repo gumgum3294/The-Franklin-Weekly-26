@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Franklin Weekly — Franklin, Michigan News, Every Saturday</title>
+<meta name="theme-color" content="#141210">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20role%3D%22img%22%20aria-label%3D%22The%20Franklin%20Weekly%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%23141210%22%2F%3E%3Cpath%20d%3D%22M19%2014h26v7H28v8h14v7H28v12h-9z%22%20fill%3D%22%23f7f3ea%22%2F%3E%3Crect%20x%3D%2219%22%20y%3D%2252%22%20width%3D%2226%22%20height%3D%224%22%20rx%3D%222%22%20fill%3D%22%23a8842c%22%2F%3E%3C%2Fsvg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="logo-32.png">
+<link rel="apple-touch-icon" href="logo-180.png">
+<meta name="description" content="The Franklin Weekly is a locally written newsletter covering Franklin, Michigan. Village news, schools, events, and neighbors — delivered to your inbox every Saturday at 3 p.m. for $30/month or $371/year.">
+<meta property="og:title" content="The Franklin Weekly — Franklin, MI News Every Saturday">
+<meta property="og:description" content="Locally written news about Franklin, Michigan. In your inbox every Saturday at 3 p.m. $30/month or $371/year.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141210;
+    --ink-soft:#3a352f;
+    --paper:#f7f3ea;
+    --paper-2:#fffdf8;
+    --rule:#d9d0bd;
+    --rule-strong:#141210;
+    --accent:#8b1a1a;
+    --accent-2:#a52a2a;
+    --gold:#a8842c;
+    --serif:"Source Serif 4", Georgia, serif;
+    --display:"Playfair Display", Georgia, serif;
+    --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:760px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#f2ede2;
+    font-family:var(--sans);
+    font-size:12.5px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    padding:9px 0;
+  }
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .topbar .dot{color:var(--gold)}
+
+  /* ---------- Masthead ---------- */
+  header.masthead{background:var(--paper-2);border-bottom:3px double var(--rule-strong);padding:26px 0 0}
+  .masthead-top{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);padding-bottom:14px;
+  }
+  .masthead-top span{white-space:nowrap}
+  .brand{text-align:center;padding:6px 0 18px}
+  .brand h1{
+    font-family:var(--display);
+    font-weight:900;
+    font-size:clamp(38px,7.5vw,84px);
+    line-height:.95;
+    letter-spacing:-.02em;
+    text-transform:uppercase;
+  }
+  .brand h1 em{font-style:italic;font-weight:400;text-transform:none;letter-spacing:0}
+  .brand .tagline{
+    font-family:var(--sans);font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--accent);margin-top:14px;
+  }
+  .brand .rule{height:1px;background:var(--rule);margin:18px auto 0;max-width:340px}
+  nav.mainnav{border-top:1px solid var(--rule);background:var(--paper-2)}
+  nav.mainnav ul{
+    display:flex;justify-content:center;gap:6px;list-style:none;flex-wrap:wrap;
+    font-family:var(--sans);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;
+    padding:12px 0;
+  }
+  nav.mainnav a{
+    color:var(--ink-soft);text-decoration:none;padding:6px 14px;border-radius:2px;
+    cursor:pointer;transition:background .15s,color .15s;
+  }
+  nav.mainnav a:hover{background:var(--ink);color:var(--paper)}
+  nav.mainnav a.cta{color:var(--accent);font-weight:600}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:58px 0 46px;border-bottom:1px solid var(--rule)}
+  .hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:56px;align-items:start}
+  .kicker{
+    font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:18px;
+  }
+  .kicker::after{content:"";flex:1;height:1px;background:var(--rule)}
+  h2.headline{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(32px,4.6vw,52px);line-height:1.08;letter-spacing:-.015em;
+    margin-bottom:20px;
+  }
+  .lede{font-size:20px;color:var(--ink-soft);margin-bottom:14px}
+  .lede strong{color:var(--ink)}
+  .dropcap::first-letter{
+    float:left;font-family:var(--display);font-weight:900;font-size:74px;line-height:.78;
+    padding:6px 12px 0 0;color:var(--accent);
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .btn{
+    display:inline-block;font-family:var(--sans);font-size:13px;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+    padding:15px 30px;border:1.5px solid var(--ink);border-radius:2px;cursor:pointer;
+    transition:transform .15s,background .15s,color .15s,box-shadow .15s;
+  }
+  .btn-solid{background:var(--ink);color:var(--paper-2)}
+  .btn-solid:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 20px rgba(139,26,26,.22)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper-2);transform:translateY(-2px)}
+
+  /* Hero side card — sample issue */
+  .sample{
+    background:var(--paper-2);border:1px solid var(--rule);
+    box-shadow:10px 10px 0 rgba(20,18,16,.06);
+    padding:26px 26px 22px;
+  }
+  .sample .s-head{
+    font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-soft);border-bottom:1px solid var(--rule);padding-bottom:10px;
+    display:flex;justify-content:space-between;margin-bottom:16px;
+  }
+  .sample h3{font-family:var(--display);font-size:23px;line-height:1.2;margin-bottom:8px}
+  .sample .byline{font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .sample p{font-size:15.5px;color:var(--ink-soft);line-height:1.6}
+  .sample .s-list{list-style:none;margin-top:18px;border-top:1px solid var(--rule);padding-top:14px}
+  .sample .s-list li{
+    font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);
+    padding:7px 0 7px 20px;position:relative;border-bottom:1px dotted var(--rule);
+  }
+  .sample .s-list li:last-child{border-bottom:0}
+  .sample .s-list li::before{content:"▸";position:absolute;left:0;color:var(--gold)}
+
+  /* ---------- Stat strip ---------- */
+  .stats{background:var(--ink);color:var(--paper);padding:30px 0}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .stat b{display:block;font-family:var(--display);font-size:34px;font-weight:700;line-height:1;color:var(--paper-2)}
+  .stat span{
+    display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.18em;
+    text-transform:uppercase;color:#bdb4a2;margin-top:9px;
+  }
+
+  /* ---------- Sections ---------- */
+  section{padding:74px 0}
+  .section-head{margin-bottom:42px}
+  .section-head .kicker{margin-bottom:14px}
+  .section-head h2{
+    font-family:var(--display);font-weight:700;font-size:clamp(28px,3.6vw,42px);
+    line-height:1.12;letter-spacing:-.01em;
+  }
+  .section-head p{margin-top:14px;color:var(--ink-soft);font-size:18px;max-width:640px}
+  .center{text-align:center}
+  .center .section-head p{margin-left:auto;margin-right:auto}
+
+  /* What's inside */
+  .inside{background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+  .col h3{
+    font-family:var(--display);font-size:22px;margin-bottom:10px;
+    padding-bottom:10px;border-bottom:2px solid var(--ink);
+  }
+  .col p{font-size:16.5px;color:var(--ink-soft)}
+  .col .num{
+    font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.16em;
+    color:var(--accent);display:block;margin-bottom:8px;
+  }
+
+  /* How it works */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;counter-reset:s}
+  .step{position:relative;padding-top:22px;border-top:2px solid var(--rule)}
+  .step::before{
+    counter-increment:s;content:counter(s,decimal-leading-zero);
+    font-family:var(--display);font-size:44px;font-weight:900;color:var(--rule);
+    position:absolute;top:10px;right:0;line-height:1;
+  }
+  .step h3{font-family:var(--display);font-size:20px;margin-bottom:8px;position:relative;z-index:1}
+  .step p{font-size:16px;color:var(--ink-soft)}
+
+  /* ---------- Pricing ---------- */
+  .pricing{background:var(--ink);color:var(--paper);border-top:1px solid var(--rule-strong)}
+  .pricing .section-head h2{color:var(--paper-2)}
+  .pricing .section-head p{color:#c3bbaa}
+  .pricing .kicker{color:var(--gold)}
+  .pricing .kicker::after{background:#4a453d}
+  .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:900px;margin:0 auto}
+  .plan{
+    background:var(--paper-2);color:var(--ink);border:1px solid #2a2622;
+    padding:36px 32px 32px;display:flex;flex-direction:column;position:relative;
+  }
+  .plan.featured{border:2px solid var(--gold);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+  .badge{
+    position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--gold);color:#1a1712;font-family:var(--sans);font-size:10.5px;
+    font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:6px 16px;white-space:nowrap;
+  }
+  .plan .p-name{
+    font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:16px;
+  }
+  .plan .p-price{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+  .plan .p-price .amt{font-family:var(--display);font-size:58px;font-weight:900;line-height:1;letter-spacing:-.03em}
+  .plan .p-price .per{font-family:var(--sans);font-size:13px;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase}
+  .plan .p-sub{font-family:var(--sans);font-size:13.5px;color:var(--ink-soft);margin-bottom:24px}
+  .plan ul{list-style:none;margin-bottom:28px;flex:1}
+  .plan ul li{
+    font-size:16px;padding:9px 0 9px 28px;position:relative;border-bottom:1px solid #ece5d7;
+  }
+  .plan ul li:last-child{border-bottom:0}
+  .plan ul li::before{
+    content:"✓";position:absolute;left:0;top:9px;color:var(--accent);font-weight:700;font-size:15px;
+  }
+  .plan .btn{width:100%;text-align:center}
+  .plan-note{
+    text-align:center;font-family:var(--sans);font-size:12.5px;color:#a49b88;
+    margin-top:26px;letter-spacing:.04em;
+  }
+  .plan-note a{color:#c3bbaa}
+
+  /* FAQ */
+  .faq-list{max-width:800px;margin:0 auto;border-top:1px solid var(--rule)}
+  details{border-bottom:1px solid var(--rule);padding:4px 0}
+  summary{
+    font-family:var(--display);font-size:20px;font-weight:600;cursor:pointer;
+    padding:20px 40px 20px 0;list-style:none;position:relative;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{
+    content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);
+    font-family:var(--sans);font-size:24px;font-weight:400;color:var(--accent);transition:transform .2s;
+  }
+  details[open] summary::after{content:"–"}
+  details p{padding:0 40px 22px 0;color:var(--ink-soft);font-size:17px}
+  details p a{color:var(--accent)}
+
+  /* Final CTA */
+  .final{background:var(--accent);color:#fff;text-align:center}
+  .final h2{
+    font-family:var(--display);font-size:clamp(30px,4.4vw,50px);font-weight:700;
+    line-height:1.1;margin-bottom:18px;
+  }
+  .final p{font-size:19px;color:#f3dede;max-width:600px;margin:0 auto 32px}
+  .final .btn-solid{background:#fff;color:var(--accent);border-color:#fff}
+  .final .btn-solid:hover{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 8px 22px rgba(0,0,0,.3)}
+
+  /* Footer */
+  footer{background:var(--ink);color:#a49b88;padding:56px 0 34px;font-family:var(--sans);font-size:13.5px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-bottom:34px;border-bottom:1px solid #2e2a25}
+  footer h4{
+    font-family:var(--display);font-size:22px;color:var(--paper-2);
+    text-transform:uppercase;letter-spacing:-.01em;margin-bottom:12px;
+  }
+  footer .fh{
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7d7566;
+    margin-bottom:14px;font-weight:600;
+  }
+  footer ul{list-style:none}
+  footer li{margin-bottom:9px}
+  footer a{color:#c3bbaa;text-decoration:none;cursor:pointer;transition:color .15s}
+  footer a:hover{color:#fff}
+  .foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:12px;color:#6f6859}
+  .disclaimer{margin-top:14px;font-size:11.5px;line-height:1.6;color:#5e5849;max-width:760px}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .cols,.steps{grid-template-columns:1fr;gap:28px}
+    .stats .wrap{grid-template-columns:repeat(2,1fr);gap:28px}
+    .plans{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr;gap:30px}
+  }
+  @media(max-width:560px){
+    body{font-size:17px}
+    .masthead-top{font-size:10.5px}
+    .masthead-top span:nth-child(2){display:none}
+    section{padding:54px 0}
+    .plan{padding:30px 22px 26px}
+    .plan .p-price .amt{font-size:48px}
+    .btn{width:100%;text-align:center}
+    .hero-actions{flex-direction:column}
+    .sample{padding:22px 20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <span>Franklin, Michigan <span class="dot">◆</span> Oakland County</span>
+    <span>Published every Saturday at 3:00 PM <span class="dot">◆</span> Locally written</span>
+  </div>
+</div>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-top">
+      <span id="issueDate">Saturday Edition</span>
+      <span>Vol. 1 &nbsp;•&nbsp; Franklin Village</span>
+      <span>Subscriber Newsletter</span>
+    </div>
+    <div class="brand">
+      <h1>The Franklin <em>Weekly</em></h1>
+      <div class="tagline">All of Franklin. One email. Every Saturday at 3.</div>
+      <div class="rule"></div>
+    </div>
+  </div>
+  <nav class="mainnav">
+    <div class="wrap">
+      <ul>
+        <li><a data-scroll="inside">What's Inside</a></li>
+        <li><a data-scroll="how">How It Works</a></li>
+        <li><a data-scroll="pricing">Pricing</a></li>
+        <li><a data-scroll="faq">FAQ</a></li>
+        <li><a class="cta" data-scroll="pricing">Subscribe</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">The Local Paper for Franklin, MI</div>
+      <h2 class="headline">Everything happening in Franklin — in your inbox by 3 p.m. Saturday.</h2>
+      <p class="lede dropcap">The Franklin Weekly is a locally written newsletter covering the Village of Franklin, Michigan. Village hall decisions, school news, road and construction updates, local events, new neighbors, and the small stories that make this town feel like a town.</p>
+      <p class="lede">No national filler. No clickbait. Just Franklin — written by someone who actually lives here and cares what happens next.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" data-scroll="pricing">Subscribe — $30/month</a>
+        <a class="btn btn-ghost" data-scroll="inside">See what's inside</a>
+      </div>
+    </div>
+
+    <aside class="sample">
+      <div class="s-head">
+        <span>Sample Issue</span>
+        <span>Saturday</span>
+      </div>
+      <h3>Village Council Reviews the Downtown Sidewalk Plan</h3>
+      <div class="byline">Franklin Village &nbsp;•&nbsp; 3 min read</div>
+      <p>What the council actually decided this week, what it means for parking near the village center, and when construction is expected to begin.</p>
+      <ul class="s-list">
+        <li>Franklin schools — this week's results &amp; schedule</li>
+        <li>Road closures and construction around the village</li>
+        <li>Local events, markets &amp; library happenings</li>
+        <li>New businesses, openings &amp; neighbor news</li>
+        <li>Police &amp; safety notes for the week</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ STAT STRIP ============ -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>1×</b><span>Every Saturday</span></div>
+    <div class="stat"><b>3 PM</b><span>In Your Inbox</span></div>
+    <div class="stat"><b>100%</b><span>Franklin-Focused</span></div>
+    <div class="stat"><b>Local</b><span>Written Here, Not Al</span></div>
+  </div>
+</div>
+
+<!-- ============ WHAT'S INSIDE ============ -->
+<section class="inside" id="inside">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="kicker">What You Get</div>
+      <h2>A whole week of Franklin, in one readable email.</h2>
+      <p>Each Saturday issue is built from what actually happened in and around the Village of Franklin — organized so you can skim it in five minutes or read it over coffee.</p>
+    </div>
+    <div class="cols">
+      <div class="col">
+        <span class="num">01</span>
+        <h3>Village &amp; Civic News</h3>
+        <p>Council meetings, village decisions, ordinances, planning and zoning, and what your local government is doing — explained in plain English, without the legalese.</p>
+      </div>
+      <div class="col">
+        <span class="num">02</span>
+        <h3>Schools &amp; Community</h3>
+        <p>School news, student achievements, local sports, library programs, church and community group announcements — the things families here actually talk about.</p>
+      </div>
+      <div class="col">
+        <span class="num">03</span>
+        <h3>Events &amp; Things To Do</h3>
+        <p>What's happening this weekend and next: markets, cider mill season, village events, fundraisers, and the local calendar — so you never miss a thing.</p>
+      </div>
+      <div class="col">
+        <span class="num">04</span>
+        <h3>Roads, Safety &amp; Alerts</h3>
+        <p>Construction projects, closures, detours, weather impacts, and police and safety notes for the week — the practical stuff you need before you leave the house.</p>
+      </div>
+      <div class="col">
+        <span class="num">05</span>
+        <h3>Business &amp; Real Estate</h3>
+        <p>New openings, local business news, and a look at what's moving in the Franklin housing market — useful whether you live here or are thinking about it.</p>
+      </div>
+      <div class="col">
+        <span class="num">06</span>
+        <h3>Neighbors &amp; Local Life</h3>
+        <p>The human side of Franklin: milestones, new neighbors, community spotlights, and the small-town stories that never make the big outlets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="kicker">How It Works</div>
+      <h2>Three steps. Then just read your email on Saturday.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Choose your plan</h3>
+        <p>Pick monthly at $30 or yearly at $371. Both give you the exact same newsletter — the yearly plan is simply one payment instead of twelve.</p>
+      </div>
+      <div class="step">
+        <h3>Check out securely</h3>
+        <p>Subscriptions are handled through Whop, a secure checkout platform. Your payment details are never stored on this site.</p>
+      </div>
+      <div class="step">
+        <h3>Read it every Saturday</h3>
+        <p>Your issue lands in your inbox every Saturday at 3:00 p.m. Skim the headlines, or read the whole thing with your afternoon coffee. Cancel anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="kicker">Subscriptions</div>
+      <h2>Simple pricing. Same newsletter either way.</h2>
+      <p>Both plans include every Saturday issue, full access to the archive, and the ability to cancel at any time.</p>
+    </div>
+
+    <div class="plans">
+      <!-- MONTHLY -->
+      <div class="plan">
+        <div class="p-name">Monthly</div>
+        <div class="p-price">
+          <span class="amt">$30</span>
+          <span class="per">/ month</span>
+        </div>
+        <div class="p-sub">Billed monthly. Cancel anytime.</div>
+        <ul>
+          <li>Every Saturday issue, delivered by email</li>
+          <li>Village, school &amp; community coverage</li>
+          <li>Local events calendar each week</li>
+          <li>Road, safety &amp; construction alerts</li>
+          <li>Full access to past issues</li>
+          <li>Cancel any time — no contract</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://whop.com/franklin-news/franklin-mi-weekly-newsletter/" target="_blank" rel="noopener noreferrer">Subscribe Monthly</a>
+      </div>
+
+      <!-- YEARLY -->
+      <div class="plan featured">
+        <div class="badge">One Payment — Full Year</div>
+        <div class="p-name">Yearly</div>
+        <div class="p-price">
+          <span class="amt">$371</span>
+          <span class="per">/ year</span>
+        </div>
+        <div class="p-sub">A single payment covers all 52 Saturday issues.</div>
+        <ul>
+          <li>Everything in the monthly plan</li>
+          <li>All 52 issues for a full year</li>
+          <li>One payment — no monthly reminders</li>
+          <li>Village, school &amp; community coverage</li>
+          <li>Local events calendar each week</li>
+          <li>Priority access to new features</li>
+        </ul>
+        <a class="btn btn-solid" href="https://whop.com/franklin-news/franklin-mi-weekly-newsletter-7c/" target="_blank" rel="noopener noreferrer">Subscribe Yearly</a>
+      </div>
+    </div>
+
+    <p class="plan-note">Secure checkout powered by Whop &nbsp;•&nbsp; Cancel anytime &nbsp;•&nbsp; Questions? Email us at <a href="mailto:Anthonyasad2015@gmail.com">Anthonyasad2015@gmail.com</a></p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="narrow">
+    <div class="section-head center">
+      <div class="kicker">Questions</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>What exactly do I get for $30 a month?</summary>
+        <p>A locally written email newsletter about Franklin, Michigan, delivered every Saturday at 3:00 p.m. It covers village and civic news, school and community updates, local events, road and safety notes, business news, and neighbor stories — all in one readable issue.</p>
+      </details>
+      <details>
+        <summary>What's the difference between monthly and yearly?</summary>
+        <p>Nothing about the newsletter itself — both plans get the same Saturday issues. The monthly plan is $30 billed each month, and the yearly plan is $371 billed once for the full year. The yearly plan simply means one payment and no monthly reminders.</p>
+      </details>
+      <details>
+        <summary>When does the newsletter arrive?</summary>
+        <p>Every Saturday at 3:00 p.m. If you subscribe mid-week, your first issue arrives the following Saturday.</p>
+      </details>
+      <details>
+        <summary>Is this written by a real person in Franklin?</summary>
+        <p>Yes. The Franklin Weekly is written locally and focuses only on Franklin and the immediate area. There's no syndicated national content and no auto-generated filler.</p>
+      </details>
+      <details>
+        <summary>How do I pay, and is it secure?</summary>
+        <p>Payments are processed through Whop, a secure third-party checkout platform. Your card details are handled by Whop and are never stored on this website.</p>
+      </details>
+      <details>
+        <summary>Can I cancel?</summary>
+        <p>Yes — you can cancel your subscription at any time through your Whop account. You'll keep access through the end of the period you've already paid for.</p>
+      </details>
+      <details>
+        <summary>I have something to share. Can I send it in?</summary>
+        <p>Absolutely. Local tips, event listings, business openings, and community announcements are what make the newsletter work. Email <a href="mailto:Anthonyasad2015@gmail.com">Anthonyasad2015@gmail.com</a> and we'll take a look.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="narrow">
+    <h2>Franklin news, every Saturday.</h2>
+    <p>Join your neighbors and stay current on the village you live in. Two plans, one newsletter, cancel anytime.</p>
+    <a class="btn btn-solid" data-scroll="pricing">Choose Your Plan</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The Franklin Weekly</h4>
+        <p style="max-width:340px">A locally written newsletter covering the Village of Franklin, Michigan — delivered to your inbox every Saturday at 3 p.m.</p>
+      </div>
+      <div>
+        <div class="fh">Subscribe</div>
+        <ul>
+          <li><a href="https://whop.com/franklin-news/franklin-mi-weekly-newsletter/" target="_blank" rel="noopener noreferrer">Monthly — $30/mo</a></li>
+          <li><a href="https://whop.com/franklin-news/franklin-mi-weekly-newsletter-7c/" target="_blank" rel="noopener noreferrer">Yearly — $371/yr</a></li>
+          <li><a data-scroll="faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="fh">Contact</div>
+        <ul>
+          <li><a href="mailto:Anthonyasad2015@gmail.com">Anthonyasad2015@gmail.com</a></li>
+          <li>Franklin, Michigan 48025</li>
+          <li><a data-scroll="inside">Send a news tip</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> The Franklin Weekly. All rights reserved.</span>
+      <span>Made in Franklin, Michigan</span>
+    </div>
+    <p class="disclaimer">The Franklin Weekly is an independent local newsletter and is not affiliated with, endorsed by, or an official publication of the Village of Franklin, Michigan. Subscriptions are billed through Whop. This site does not process or store payment information.</p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   NAVIGATION — works both standalone AND inside the
+   preview panel (which injects a <base> tag that breaks
+   plain "#anchor" links).
+   ========================================================= */
+(function () {
+  // 1) In-page scrolling. Elements use data-scroll="id" and NO href,
+  //    so nothing can hijack the click into a page navigation.
+  document.querySelectorAll('[data-scroll]').forEach(function (el) {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var target = document.getElementById(el.getAttribute('data-scroll'));
+      if (!target) return;
+      try {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (err) {
+        target.scrollIntoView();
+      }
+    });
+  });
+
+  // 2) External checkout links. Force a new tab/window and fall back
+  //    to same-tab navigation if the popup is blocked.
+  document.querySelectorAll('a[href^="http"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var url = a.getAttribute('href');
+      if (!url) return;
+      e.preventDefault();
+      var w = null;
+      try { w = window.open(url, '_blank', 'noopener,noreferrer'); } catch (err) { w = null; }
+      if (!w) {
+        try { window.top.location.href = url; }
+        catch (err) { window.location.href = url; }
+      }
+    });
+  });
+
+  // 3) Current issue date — always the upcoming Saturday.
+  var d = new Date();
+  var daysUntilSat = (6 - d.getDay() + 7) % 7;
+  if (daysUntilSat === 0) daysUntilSat = 7;
+  var sat = new Date(d.getFullYear(), d.getMonth(), d.getDate() + daysUntilSat);
+  var el = document.getElementById('issueDate');
+  if (el) {
+    el.textContent = sat.toLocaleDateString('en-US', {
+      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+    }) + ' Edition';
+  }
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = d.getFullYear();
+})();
+</script>
+
+</body>
+</html>
